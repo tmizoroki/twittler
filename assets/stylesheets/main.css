@@ -74,3 +74,20 @@ table {
 h1, h2 {
 	margin-bottom: 22px;
 }
+
+/*
+  ========================================
+  Buttons
+  ========================================
+*/
+
+.btn {
+	border-radius 5px;
+	display: inline-block;
+	margin: 0;
+}
+
+.btn-twit {
+	border: 1px solid #1773d9;
+	padding: 10px 30px;
+}
