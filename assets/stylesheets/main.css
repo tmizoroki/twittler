@@ -76,11 +76,15 @@ section {
   ========================================
 */
 
-body{
+body {
 	background-color: #fff;
-	background-image: url("swirl_pattern.png");
+	background-image: url("../images/swirl_pattern.png");
 	background-repeat: repeat;
 	font-family: 'Orbitron', sans-serif;
+}
+
+header {
+	background-color: #fff;
 }
 
 h1 {
