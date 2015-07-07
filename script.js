@@ -27,7 +27,7 @@ $(document).ready(function(){
   var lastLength = 0;
 
   function findNewTweets(username) {
-    if (user === undefined) {
+    if (username === undefined) {
       if (streams.home.length > lastLength) {
         var numNewTwits = streams.home.length - lastLength;
         lastLength = streams.home.length;
