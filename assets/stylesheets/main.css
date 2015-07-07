@@ -52,7 +52,7 @@ table {
   See Borders
   ========================================
 */
-
+/*
 section {
 	border: 1px solid yellow;
 }
@@ -77,7 +77,7 @@ section {
 */
 
 body{
-	background-color: #11ffff;
+	background-color: #fff;
 	background-image: url("swirl_pattern.png");
 	background-repeat: repeat;
 	font-family: 'Orbitron', sans-serif;
@@ -95,8 +95,10 @@ h3 {
 	font-size: 18px;
 }
 
-.grid {
+section {
 	background-color: #60a5f1;
+	padding: 12px;
+	border-radius: 5px;
 }
 
 /*
@@ -165,8 +167,12 @@ h3 {
   ========================================
 */
 
-h1, h2 {
+h1 {
 	margin-bottom: 22px;
+}
+
+h2 {
+	margin-bottom: 10px;
 }
 
 /*
@@ -210,8 +216,28 @@ h1, h2 {
 }
 .user-info img {
 	border-radius: 50%;
+	background-color: #fff;
 }
 
+.visitor {
+	display: inline-block;
+}
+
+.visitor h2 {
+	text-align: center;
+}
+.user-stats {
+	position: aboslute;
+	bottom: 0;
+	right: 0;
+	display: inline-block;
+	text-align: right;
+	margin-left: 22px;
+}
+
+.following-stats {
+	margin-bottom: 10px;
+}
 
 /*
   ========================================
@@ -220,7 +246,7 @@ h1, h2 {
 */
 
 .twit-it {
-	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 /*
