@@ -49,6 +49,58 @@ table {
 
 /*
   ========================================
+  See Borders
+  ========================================
+*/
+
+section {
+	border: 1px solid yellow;
+}
+
+.container {
+	border: 1px solid green;
+}
+
+.grid {
+	border: 1px solid red;
+}
+
+.col-1-3,
+.col-2-3 {
+	border: 1px solid blue;
+}
+
+/*
+  ========================================
+  Home
+  ========================================
+*/
+
+body{
+	background-color: #11ffff;
+	background-image: url("swirl_pattern.png");
+	background-repeat: repeat;
+	font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+.grid {
+	background-color: #60a5f1;
+}
+
+/*
+  ========================================
   Grid
   ========================================
 */
@@ -59,10 +111,34 @@ table {
 	box-sizing: border-box;
 }
 
-.container {
+.container,
+.grid {
 	margin: 0 auto;
-	padding: 0 30px;
 	width: 960px;
+}
+
+.container {
+	padding: 0 30px;
+}
+
+.col-1-3 {
+	width: 33.33%;
+}
+
+.col-2-3 {
+	width: 66.66%;
+}
+
+.col-1-3,
+.col-2-3 {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.grid,
+.col-1-3,
+.col-2-3 {
+	padding: 0 15px;
 }
 
 /*
@@ -115,7 +191,48 @@ h1, h2 {
   Logo
   ========================================
 */
-
 .logo {
-	float: left;
+	padding-top: 10px;
+}
+.logo a{
+	text-decoration: none;
+	color: #1773d9;
+}
+
+/*
+  ========================================
+  Profile
+  ========================================
+*/
+
+.user-info {
+	margin: 15px 0;
+}
+.user-info img {
+	border-radius: 50%;
+}
+
+
+/*
+  ========================================
+  Twit it
+  ========================================
+*/
+
+.twit-it {
+	margin-bottom: 15px;
+}
+
+/*
+  ========================================
+  Posted Twits
+  ========================================
+*/
+
+.posted-twits {
+	margin-top: 15px;
+}
+
+.display-twits {
+	font-family: sans-serif;
 }
