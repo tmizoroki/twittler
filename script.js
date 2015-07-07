@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+  var numFollowing = Object.keys(streams.users).length.toString();
+  $('.following-count').text(numFollowing);
+
   var $twits = $('.display-twits');
   $twits.html('');
 
