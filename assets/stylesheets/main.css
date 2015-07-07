@@ -253,6 +253,13 @@ h2 {
 	margin-top: 15px;
 }
 
+.twit-it p {
+	display: inline;
+}
+.submit-group {
+	margin-top: 5px;
+	float: right;
+}
 /*
   ========================================
   Posted Twits
