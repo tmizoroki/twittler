@@ -46,3 +46,21 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 30px;
+	width: 960px;
+}
