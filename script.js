@@ -9,21 +9,12 @@ $(document).ready(function(){
   var lastLength = 0;
 
   var findNewTweets = function(username) {
-    var numNewTwits, newTwits;
-    if (username === undefined) {
-      if (streams.home.length > lastLength) {
-        numNewTwits = streams.home.length - lastLength;
-        lastLength = streams.home.length;
-        newTwits = streams.home.slice(-numNewTwits);
-        return newTwits;
-      } 
-    } else {
-      if (streams.users[username].length > lastLength) {
-        numNewTwits = streams.users[username].length - lastLength;
-        lastLength = streams.users[username].length;
-        newTwits = streams.users[username].slice(-numNewTwits);
-        return newTwits;
-      }
+    var source = username ? streams.users[username] : streams.home;
+    if (source.length > lastLength) {
+      numNewTwits = source.length - lastLength;
+      lastLength = source.length;
+      newTwits = source.slice(-numNewTwits);
+      return newTwits;
     }
   };
   
@@ -61,6 +52,7 @@ $(document).ready(function(){
 
     $('.visitor h2').text('@' + $username);
     $('.visitor img').attr('src', 'assets/images/' + $username + '.jpg');
+    $('.twit-count').text(streams.users[$username].length);
   });
 
 });
