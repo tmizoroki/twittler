@@ -221,6 +221,7 @@ h2 {
 .user-info img {
 	border-radius: 50%;
 	background-color: #fff;
+	width: 120px;
 }
 
 .visitor {
