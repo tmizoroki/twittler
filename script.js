@@ -6,53 +6,61 @@ $(document).ready(function(){
   var $twits = $('.display-twits');
   $twits.html('');
 
-  /*var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="twit-body group"></div>');
-    var $profilepic = $('<img src=\"assets/images/' + tweet.user + '.jpg\">');
-    $profilepic.appendTo($tweet);
-    var $user = $('<div class="username"></div>');
-    $user.text('@' + tweet.user);
-    var $time = $('<div class="date">' + tweet.created_at + '</div>');
-    var $message = $('<div class="user-message"></div>');
-    $message.text(tweet.message);
-    $user.appendTo($tweet);
-    $time.appendTo($tweet);
-    $message.appendTo($tweet);
-    $tweet.appendTo($twits);
-    index -= 1;
-  }*/
-
   var lastLength = 0;
 
-  function findNewTweets(username) {
+  var findNewTweets = function(username) {
+    var numNewTwits, newTwits;
     if (username === undefined) {
       if (streams.home.length > lastLength) {
-        var numNewTwits = streams.home.length - lastLength;
+        numNewTwits = streams.home.length - lastLength;
         lastLength = streams.home.length;
-        var newTwits = streams.home.slice(-numNewTwits);
-        console.log(newTwits);
-        newTwits.forEach(function(tweet) {
-          var $tweet = $('<div class="twit-body group"></div>');
-          var $profilepic = $('<img src=\"assets/images/' + tweet.user + '.jpg\">');
-          $profilepic.appendTo($tweet);
-          var $user = $('<div class="username"></div>');
-          $user.text('@' + tweet.user);
-          var $time = $('<div class="date">' + tweet.created_at + '</div>');
-          var $message = $('<div class="user-message"></div>');
-          $message.text(tweet.message);
-          $user.appendTo($tweet);
-          $time.appendTo($tweet);
-          $message.appendTo($tweet);
-          $tweet.prependTo($twits);
-        });
-      } else {
-
+        newTwits = streams.home.slice(-numNewTwits);
+        return newTwits;
+      } 
+    } else {
+      if (streams.users[username].length > lastLength) {
+        numNewTwits = streams.users[username].length - lastLength;
+        lastLength = streams.users[username].length;
+        newTwits = streams.users[username].slice(-numNewTwits);
+        return newTwits;
       }
     }
-  }
+  };
+  
+  var addNewTweets = function(username) {
 
-  setInterval(findNewTweets, 1000);
+    var newTweets = findNewTweets(username);
+    if (newTweets !== undefined){
+      console.log(newTweets);
+      newTweets.forEach(function(tweet) {
+        var $tweet = $('<div class="twit-body group"></div>');
+        $tweet.attr('data-username', tweet.user);
+        var $profilepic = $('<img src=\"assets/images/' + tweet.user + '.jpg\">');
+        $profilepic.appendTo($tweet);
+        var $user = $('<div class="username"></div>');
+        $user.text('@' + tweet.user);
+        var $time = $('<div class="date">' + tweet.created_at + '</div>');
+        var $message = $('<div class="user-message"></div>');
+        $message.text(tweet.message);
+        $user.appendTo($tweet);
+        $time.appendTo($tweet);
+        $message.appendTo($tweet);
+        $tweet.prependTo($twits);
+      });
+    }
+  };
+
+  var intervalId = setInterval(addNewTweets, 1000);
+
+  $('.display-twits').on('click', '.username' || 'img', function() {
+    $('.twit-body').hide();
+    lastLength = 0;
+    clearInterval(intervalId);
+    $username = $(this).closest('.twit-body').data('username');
+    setInterval(addNewTweets, 1000, $username);
+
+    $('.visitor h2').text('@' + $username);
+    $('.visitor img').attr('src', 'assets/images/' + $username + '.jpg');
+  });
 
 });
