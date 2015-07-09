@@ -92,7 +92,7 @@ h1 {
 }
 
 h2 {
-	font-size: 28px;
+	font-size: 24px;
 }
 
 h3 {
@@ -226,6 +226,7 @@ h2 {
 
 .visitor {
 	display: inline-block;
+	width: 120px;
 }
 
 .visitor h2 {
