@@ -75,4 +75,11 @@ $(document).ready(function(){
     writeTweet(text);
   });
 
+  $('textarea').keyup(function () {
+    var $charCounter = $('.submit-group>p');
+    var max = 140;
+    var len = $(this).val().length;
+    var chars = max - len;
+    len > max ? $charCounter.text('Too many!') : $charCounter.text(chars);
+  });
 });
