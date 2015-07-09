@@ -19,20 +19,16 @@ $(document).ready(function(){
   };
   
   var addNewTweets = function(username) {
-
     var newTweets = findNewTweets(username);
     if (newTweets !== undefined){
       console.log(newTweets);
       newTweets.forEach(function(tweet) {
-        var $tweet = $('<div class="twit-body group"></div>');
-        $tweet.attr('data-username', tweet.user);
-        var $profilepic = $('<img src=\"assets/images/' + tweet.user + '.jpg\">');
+        var $tweet = $('<div></div>').addClass('twit-body group').attr('data-username', tweet.user);
+        var $profilepic = $('<img>').attr('src', 'assets/images/' + tweet.user + '.jpg');
+        var $user = $('<div></div>').addClass('username').text('@' + tweet.user);
+        var $time = $('<div></div>').addClass('date').text(tweet.created_at);
+        var $message = $('<div></div>').addClass('user-message').text(tweet.message);
         $profilepic.appendTo($tweet);
-        var $user = $('<div class="username"></div>');
-        $user.text('@' + tweet.user);
-        var $time = $('<div class="date">' + tweet.created_at + '</div>');
-        var $message = $('<div class="user-message"></div>');
-        $message.text(tweet.message);
         $user.appendTo($tweet);
         $time.appendTo($tweet);
         $message.appendTo($tweet);
