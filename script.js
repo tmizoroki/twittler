@@ -1,6 +1,6 @@
 $(document).ready(function(){
   
-  window.visitor = prompt('Please enter your username: ');
+  window.visitor = prompt('Please enter your username: ') || 'visitor';
   //$('.logo').attr('data-username', '');
   streams.users[visitor] = [];
 
@@ -39,7 +39,7 @@ $(document).ready(function(){
         var $tweet = $('<div></div>').addClass('twit-body group').attr('data-username', tweet.user);
         var $profilepic = $('<img>').addClass('message-pic').attr('src', 'assets/images/' + tweet.user + '.jpg');
         var $user = $('<div></div>').addClass('username').text('@' + tweet.user);
-        var $time = $('<div></div>').addClass('date').text(tweet.created_at);
+        var $time = $('<span></span>').addClass('date').text(moment(tweet.created_at.valueOf()).fromNow());
         var $message = $('<div></div>').addClass('user-message').text(tweet.message);
         $profilepic.appendTo($tweet);
         $user.appendTo($tweet);
