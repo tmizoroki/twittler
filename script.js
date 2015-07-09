@@ -72,6 +72,7 @@ $(document).ready(function(){
 
   $('.btn-twit').on('click', function() {
     var text = $('textarea').val();
+    $('textarea').val('');
     writeTweet(text);
   });
 
