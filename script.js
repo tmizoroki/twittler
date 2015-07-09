@@ -1,8 +1,14 @@
 $(document).ready(function(){
-
+  
+  window.visitor = prompt('Please enter your username: ');
   //$('.logo').attr('data-username', '');
+  streams.users[visitor] = [];
 
-  var numFollowing = Object.keys(streams.users).length.toString();
+  $('.user-info h2').text('@' + visitor);
+  $('.visitor img').attr('src', 'assets/images/' + visitor + '.jpg');
+  $('.twit-count').text(streams.users[visitor].length);
+  
+  var numFollowing = Object.keys(streams.users).length - 1;
   $('.following-count').text(numFollowing);
 
   var $twits = $('.display-twits');
@@ -54,13 +60,19 @@ $(document).ready(function(){
     console.log($username);
     intervalId = setInterval(addNewTweets, 1000, $username);
     if ($username === null) {
-      $('.visitor h2').text('@visitor');
-      $('.visitor img').attr('src', 'assets/images/user.png');
+      $('.visitor h2').text('@' + visitor);
+      $('.visitor img').attr('src', 'assets/images/' + visitor + '.jpg');
+      $('.twit-count').text(streams.users[visitor].length);
     } else {
       $('.visitor h2').text('@' + $username);
       $('.visitor img').attr('src', 'assets/images/' + $username + '.jpg');
       $('.twit-count').text(streams.users[$username].length);
     }
+  });
+
+  $('.btn-twit').on('click', function() {
+    var text = $('textarea').val();
+    writeTweet(text);
   });
 
 });
