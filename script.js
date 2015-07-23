@@ -52,6 +52,11 @@ $(document).ready(function(){
         $time.appendTo($tweet);
         $message.appendTo($tweet);
         $tweet.prependTo($twits);
+
+        $( ".message-pic" ).error(function() {
+          $(this).attr( "src", "assets/images/visitor.jpg" );
+        });
+
       });
     }
   };
