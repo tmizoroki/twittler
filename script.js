@@ -5,7 +5,13 @@ $(document).ready(function(){
   streams.users[visitor] = [];
 
   $('.user-info h2').text('@' + visitor);
+
   $('.visitor img').attr('src', 'assets/images/' + visitor + '.jpg');
+  $('.visitor img').on('error', function() {
+    $('.visitor img').attr('src', 'assets/images/visitor.jpg');
+  });
+  
+
   $('.twit-count').text(streams.users[visitor].length);
   
   var numFollowing = Object.keys(streams.users).length - 1;
